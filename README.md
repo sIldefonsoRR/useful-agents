@@ -2,7 +2,7 @@
 
 A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
 
-It currently has 10 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
+It currently has 13 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
 
 ## Repository structure
 
@@ -21,14 +21,19 @@ It currently has 10 personas across engineering, creative and business, each wit
 │   │   ├── product-manager.agent.md
 │   │   ├── scrum-master.agent.md
 │   │   ├── data-analyst.agent.md
-│   │   └── legal-compliance-advisor.agent.md
+│   │   ├── legal-compliance-advisor.agent.md
+│   │   ├── devops-engineer.agent.md
+│   │   ├── frontend-developer.agent.md
+│   │   └── customer-support-specialist.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude Code, Cursor, OpenCode, etc.)
 │   ├── engineering/
 │   │   ├── backend-architect.md
 │   │   ├── QA-engineer.md
-│   │   └── technical-writer.md
+│   │   ├── technical-writer.md
+│   │   ├── devops-engineer.md
+│   │   └── frontend-developer.md
 │   ├── creative/
 │   │   ├── copywriter.md
 │   │   └── ui-ux-designer.md
@@ -37,7 +42,8 @@ It currently has 10 personas across engineering, creative and business, each wit
 │       ├── seo-specialist.md
 │       ├── scrum-master.md
 │       ├── data-analyst.md
-│       └── legal-compliance-advisor.md
+│       ├── legal-compliance-advisor.md
+│       └── customer-support-specialist.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
 │   ├── transpile-personas.py
 │   └── validate-frontmatter.py
@@ -64,6 +70,9 @@ It currently has 10 personas across engineering, creative and business, each wit
 | [scrum-master](.github/agents/scrum-master.agent.md) | Removes sprint bottlenecks and writes ready-to-execute GitHub or Jira issues. |
 | [data-analyst](.github/agents/data-analyst.agent.md) | Analyzes user behavior and product metrics for data-backed feature insights. |
 | [legal-compliance-advisor](.github/agents/legal-compliance-advisor.agent.md) | Reviews requirements, code and copy for GDPR, CCPA and AI-governance risks. |
+| [devops-engineer](.github/agents/devops-engineer.agent.md) | Builds and maintains CI/CD pipelines, infrastructure as code and observability. |
+| [frontend-developer](.github/agents/frontend-developer.agent.md) | Builds accessible, responsive and performant UIs that match the design system. |
+| [customer-support-specialist](.github/agents/customer-support-specialist.agent.md) | Investigates customer issues, drafts replies and writes bug reports and help content. |
 
 ### Cross-platform personas (`personas/`)
 
@@ -72,6 +81,8 @@ It currently has 10 personas across engineering, creative and business, each wit
 | [backend-architect](personas/engineering/backend-architect.md) | Engineering | Designs scalable, reliable backend systems, APIs and data models. |
 | [qa-engineer](personas/engineering/QA-engineer.md) | Engineering | Plans and writes tests, hunts edge cases and verifies features. |
 | [technical-writer](personas/engineering/technical-writer.md) | Engineering | Turns backend API code and architecture into developer docs and SDK guides. |
+| [devops-engineer](personas/engineering/devops-engineer.md) | Engineering | Builds CI/CD pipelines, infrastructure as code and observability for safe, frequent releases. |
+| [frontend-developer](personas/engineering/frontend-developer.md) | Engineering | Builds accessible, responsive and performant user interfaces. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
 | [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
@@ -79,6 +90,7 @@ It currently has 10 personas across engineering, creative and business, each wit
 | [scrum-master](personas/business/scrum-master.md) | Business | Improves team flow, removes sprint bottlenecks and writes ready-to-execute issues. |
 | [data-analyst](personas/business/data-analyst.md) | Business | Turns user behavior and product metrics into data-backed feature insights. |
 | [legal-compliance-advisor](personas/business/legal-compliance-advisor.md) | Business | Reviews requirements and copy for GDPR, CCPA and AI-governance risks before launch. |
+| [customer-support-specialist](personas/business/customer-support-specialist.md) | Business | Resolves customer issues with empathetic replies and turns recurring problems into bug reports and help content. |
 
 ## Usage
 
