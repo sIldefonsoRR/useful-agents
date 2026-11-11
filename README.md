@@ -15,11 +15,14 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 ├── personas/                   # General, cross-platform personas (Claude, Cursor, etc.)
 │   ├── engineering/
 │   │   ├── backend-architect.md
-│   │   └── QA-engineer.md
+│   │   ├── QA-engineer.md
+│   │   └── technical-writer.md
 │   ├── creative/
-│   │   └── copywriter.md
+│   │   ├── copywriter.md
+│   │   └── ui-ux-designer.md
 │   └── business/
-│       └── product-manager.md
+│       ├── product-manager.md
+│       └── seo-specialist.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
 ├── Persona-Template.md         # Starting point for new personas
 ├── README.md                   # Repository documentation & directory
@@ -41,8 +44,11 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 | --- | --- | --- |
 | [backend-architect](personas/engineering/backend-architect.md) | Engineering | Designs scalable, reliable backend systems, APIs and data models. |
 | [qa-engineer](personas/engineering/QA-engineer.md) | Engineering | Plans and writes tests, hunts edge cases and verifies features. |
+| [technical-writer](personas/engineering/technical-writer.md) | Engineering | Turns backend API code and architecture into developer docs and SDK guides. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
+| [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
+| [seo-specialist](personas/business/seo-specialist.md) | Business | Audits copy and optimizes keywords, meta tags and structure for search. |
 
 ## Usage
 
