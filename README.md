@@ -31,6 +31,8 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │       ├── product-manager.md
 │       └── seo-specialist.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
+│   ├── transpile-personas.py
+│   └── validate-frontmatter.py
 ├── Persona-Template.md         # Starting point for new personas
 ├── README.md                   # Repository documentation & directory
 └── LICENSE
@@ -67,7 +69,32 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 ## Usage
 
 - **GitHub Copilot**: files in `.github/agents/` are picked up automatically as custom agents in this repository. Copy them into another repository's `.github/agents/` to use them there.
-- **Claude, Cursor and others**: use the body of a persona file as a system prompt, or copy it into your tool's agent or rules configuration.
+- **Claude Code and Cursor**: generate ready-to-use files with the transpiler below, or copy personas by hand.
+- **Other tools**: use the body of a persona file as a system prompt, or copy it into your tool's agent or rules configuration.
+
+### Transpile personas
+
+[`scripts/transpile-personas.py`](scripts/transpile-personas.py) converts every persona in `personas/` into both formats:
+
+| Output | Format |
+| --- | --- |
+| `.claude/agents/<name>.md` | Claude Code subagent with `name` and `description` frontmatter |
+| `.cursor/rules/<name>.mdc` | Cursor rule with `description`, `globs` and `alwaysApply: false` frontmatter |
+
+The persona body is copied unchanged. Template-only fields (`category`, `role`, `vibe`, `emoji`, `color`) are dropped because neither tool uses them.
+
+```sh
+# Into another project (Claude Code project agents and Cursor rules)
+python3 scripts/transpile-personas.py --out ~/code/my-project
+
+# Claude Code user-level agents, available in all your projects
+python3 scripts/transpile-personas.py --out ~ --target claude
+
+# Into this repository (the generated folders are git-ignored)
+python3 scripts/transpile-personas.py
+```
+
+`--target` accepts `all` (default), `claude` or `cursor`. Existing files with the same name are overwritten. The script stops without writing anything if a persona is missing `name` or `description`, has a `name` that is not lowercase letters, digits and hyphens, or shares a `name` with another persona.
 
 ### Claude Code
 
@@ -161,13 +188,13 @@ It checks every file under `personas/` and `.github/agents/` for the required ke
 
 ### Validate personas workflow
 
-The [Validate personas](.github/workflows/validate-personas.yml) GitHub Actions workflow runs the same script automatically:
+The [Validate personas](.github/workflows/validate-personas.yml) GitHub Actions workflow runs the validator, then runs the transpiler into a temporary folder to make sure every persona converts cleanly. It runs:
 
-- on pull requests that change `personas/`, `.github/agents/`, the validator script or the workflow itself;
+- on pull requests that change `personas/`, `.github/agents/`, `scripts/` or the workflow itself;
 - on pushes to `main` that touch the same paths;
 - manually, from the **Actions** tab (`workflow_dispatch`).
 
-A pull request that adds a persona with missing frontmatter fails this check.
+A pull request that adds a persona with missing frontmatter, or one that cannot be transpiled, fails this check.
 
 ## Contributing
 
