@@ -46,6 +46,47 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 - **GitHub Copilot**: files in `.github/agents/` are picked up automatically as custom agents in this repository. Copy them into another repository's `.github/agents/` to use them there.
 - **Claude, Cursor and others**: use the body of a persona file as a system prompt, or copy it into your tool's agent or rules configuration.
 
+### Claude Code
+
+Claude Code loads subagents from Markdown files with `name` and `description` frontmatter, which every persona already has.
+
+```sh
+# Project-level: available only in that project
+mkdir -p .claude/agents
+cp personas/engineering/backend-architect.md .claude/agents/
+
+# User-level: available in all your projects
+mkdir -p ~/.claude/agents
+cp personas/engineering/backend-architect.md ~/.claude/agents/
+```
+
+To install every persona at once:
+
+```sh
+mkdir -p ~/.claude/agents
+cp personas/*/*.md ~/.claude/agents/
+```
+
+Run `/agents` in Claude Code to confirm they are loaded. Claude delegates to a subagent automatically when a task matches its `description`, or you can ask for one by name, for example "use the backend-architect agent to design this API".
+
+### Cursor
+
+Cursor loads project rules from `.mdc` files in `.cursor/rules/`. Copy a persona there with the `.mdc` extension:
+
+```sh
+mkdir -p .cursor/rules
+cp personas/creative/copywriter.md .cursor/rules/copywriter.mdc
+```
+
+To install every persona at once:
+
+```sh
+mkdir -p .cursor/rules
+for f in personas/*/*.md; do cp "$f" ".cursor/rules/$(basename "$f" .md).mdc"; done
+```
+
+Cursor uses the `description` to decide when to apply a rule. You can also attach one manually in chat by typing `@` followed by the rule name, for example `@copywriter`.
+
 ## File format
 
 Every file starts with YAML frontmatter:
