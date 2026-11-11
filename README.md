@@ -12,7 +12,11 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │   │   ├── security-reviewer.agent.md
 │   │   ├── ui-ux-designer.agent.md
 │   │   ├── technical-writer.agent.md
-│   │   └── seo-specialist.agent.md
+│   │   ├── seo-specialist.agent.md
+│   │   ├── backend-architect.agent.md
+│   │   ├── qa-engineer.agent.md
+│   │   ├── copywriter.agent.md
+│   │   └── product-manager.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude, Cursor, etc.)
@@ -43,6 +47,10 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 | [ui-ux-designer](.github/agents/ui-ux-designer.agent.md) | Turns user flows into wireframes, maintains the design system and reviews visual fidelity. |
 | [technical-writer](.github/agents/technical-writer.agent.md) | Writes developer docs and SDK guides from the repository's API code and architecture. |
 | [seo-specialist](.github/agents/seo-specialist.agent.md) | Audits copy and recommends keyword, meta tag and structure improvements. |
+| [backend-architect](.github/agents/backend-architect.agent.md) | Designs backend systems, APIs and data models, and documents the decisions. |
+| [qa-engineer](.github/agents/qa-engineer.agent.md) | Plans, writes and runs tests, and reports reproducible bugs. |
+| [copywriter](.github/agents/copywriter.agent.md) | Writes and edits copy for a specific audience and brand voice. |
+| [product-manager](.github/agents/product-manager.agent.md) | Turns problems into prioritized, well-scoped requirements. |
 
 ### Cross-platform personas (`personas/`)
 
