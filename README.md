@@ -7,9 +7,11 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 ```
 .
 ├── .github/
-│   └── agents/                 # Native path for GitHub Copilot custom agents
-│       ├── senior-dev.agent.md
-│       └── security-reviewer.agent.md
+│   ├── agents/                 # Native path for GitHub Copilot custom agents
+│   │   ├── senior-dev.agent.md
+│   │   └── security-reviewer.agent.md
+│   └── workflows/
+│       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude, Cursor, etc.)
 │   ├── engineering/
 │   │   ├── backend-architect.md
@@ -19,6 +21,7 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │   └── business/
 │       └── product-manager.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
+├── Persona-Template.md         # Starting point for new personas
 ├── README.md                   # Repository documentation & directory
 └── LICENSE
 ```
@@ -99,12 +102,56 @@ category: engineering   # personas only
 ---
 ```
 
-Validate all files with:
+Required keys:
+
+| Location | Required keys |
+| --- | --- |
+| `personas/**/*.md` | `name`, `description`, `category` |
+| `.github/agents/*.agent.md` | `name`, `description` |
+
+Extra keys are allowed.
+
+### Persona template
+
+[`Persona-Template.md`](Persona-Template.md) is the standard starting point for a new persona. Besides the required keys, it adds optional metadata (`role`, `vibe`, `emoji`, `color`) and a body with these sections:
+
+- **Identity & Core Mission**: who the persona is and what it is for.
+- **Core Capabilities**: the main things it does.
+- **Specialized Skills**: specific tools, languages or techniques.
+- **Decision Framework & Logic**: how it prioritizes and makes calls.
+- **Boundaries & Constraints**: what it must never do.
+
+To create a persona from it:
+
+```sh
+cp Persona-Template.md personas/<category>/<persona-name>.md
+```
+
+Then replace the example Security Reviewer content with your own.
+
+## Validation
+
+Validate all files locally with:
 
 ```sh
 python3 scripts/validate-frontmatter.py
 ```
 
+It checks every file under `personas/` and `.github/agents/` for the required keys and exits with a non-zero status if any are missing or empty. `Persona-Template.md` lives at the repository root, so it is not checked.
+
+### Validate personas workflow
+
+The [Validate personas](.github/workflows/validate-personas.yml) GitHub Actions workflow runs the same script automatically:
+
+- on pull requests that change `personas/`, `.github/agents/`, the validator script or the workflow itself;
+- on pushes to `main` that touch the same paths;
+- manually, from the **Actions** tab (`workflow_dispatch`).
+
+A pull request that adds a persona with missing frontmatter fails this check.
+
 ## Contributing
 
-Add a persona under the matching `personas/<category>/` folder (or a Copilot agent under `.github/agents/` with the `.agent.md` suffix), run the validator, add it to the tables above and open a pull request.
+1. Copy `Persona-Template.md` into the matching `personas/<category>/` folder (or add a Copilot agent under `.github/agents/` with the `.agent.md` suffix).
+2. Run `python3 scripts/validate-frontmatter.py` and fix any errors.
+3. Add the persona to the tables above.
+4. Open a pull request. The **Validate personas** check must pass before it is merged.
