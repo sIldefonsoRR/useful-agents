@@ -239,7 +239,12 @@ Validate all files locally with:
 python3 scripts/validate-frontmatter.py
 ```
 
-It checks every file under `personas/` and `.github/agents/` for the required keys and exits with a non-zero status if any are missing or empty. `Persona-Template.md` lives at the repository root, so it is not checked.
+It checks that:
+
+- every file under `personas/` and `.github/agents/` has the required keys, and none of them is missing or empty;
+- every persona has a matching GitHub Copilot agent at `.github/agents/<name>.agent.md`, where `<name>` is the persona's `name`.
+
+It exits with a non-zero status if any check fails. `Persona-Template.md` lives at the repository root, so it is not checked. Copilot agents without a matching persona, such as `senior-dev`, are allowed.
 
 ### Validate personas workflow
 
@@ -249,11 +254,11 @@ The [Validate personas](.github/workflows/validate-personas.yml) GitHub Actions 
 - on pushes to `main` that change `personas/`, `.github/agents/`, `scripts/` or the workflow itself;
 - manually, from the **Actions** tab (`workflow_dispatch`).
 
-A pull request that adds a persona with missing frontmatter, or one that cannot be transpiled, fails this check.
+A pull request that adds a persona with missing frontmatter, without a matching Copilot agent, or that cannot be transpiled, fails this check.
 
 ## Contributing
 
 1. Copy `Persona-Template.md` into the matching `personas/<category>/` folder (or add a Copilot agent under `.github/agents/` with the `.agent.md` suffix).
 2. Run `python3 scripts/validate-frontmatter.py` and fix any errors.
-3. Add the persona to the tables above, and add a matching Copilot agent in `.github/agents/<name>.agent.md`.
+3. Add a matching Copilot agent in `.github/agents/<name>.agent.md` (the validator fails without one), and add both to the tables above.
 4. Open a pull request. The **Validate personas** check must pass before it is merged.
