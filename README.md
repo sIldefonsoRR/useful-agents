@@ -2,7 +2,7 @@
 
 A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
 
-It currently has 13 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
+It currently has 16 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
 
 ## Repository structure
 
@@ -24,7 +24,10 @@ It currently has 13 personas across engineering, creative and business, each wit
 │   │   ├── legal-compliance-advisor.agent.md
 │   │   ├── devops-engineer.agent.md
 │   │   ├── frontend-developer.agent.md
-│   │   └── customer-support-specialist.agent.md
+│   │   ├── customer-support-specialist.agent.md
+│   │   ├── security-engineer.agent.md
+│   │   ├── mobile-developer.agent.md
+│   │   └── machine-learning-engineer.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude Code, Cursor, OpenCode, etc.)
@@ -33,7 +36,10 @@ It currently has 13 personas across engineering, creative and business, each wit
 │   │   ├── QA-engineer.md
 │   │   ├── technical-writer.md
 │   │   ├── devops-engineer.md
-│   │   └── frontend-developer.md
+│   │   ├── frontend-developer.md
+│   │   ├── security-engineer.md
+│   │   ├── mobile-developer.md
+│   │   └── machine-learning-engineer.md
 │   ├── creative/
 │   │   ├── copywriter.md
 │   │   └── ui-ux-designer.md
@@ -73,6 +79,9 @@ It currently has 13 personas across engineering, creative and business, each wit
 | [devops-engineer](.github/agents/devops-engineer.agent.md) | Builds and maintains CI/CD pipelines, infrastructure as code and observability. |
 | [frontend-developer](.github/agents/frontend-developer.agent.md) | Builds accessible, responsive and performant UIs that match the design system. |
 | [customer-support-specialist](.github/agents/customer-support-specialist.agent.md) | Investigates customer issues, drafts replies and writes bug reports and help content. |
+| [security-engineer](.github/agents/security-engineer.agent.md) | Threat-models features, hardens code and configuration, and fixes vulnerabilities. |
+| [mobile-developer](.github/agents/mobile-developer.agent.md) | Builds fast, reliable and accessible iOS and Android features. |
+| [machine-learning-engineer](.github/agents/machine-learning-engineer.agent.md) | Builds, evaluates and prepares ML models and LLM features for production. |
 
 ### Cross-platform personas (`personas/`)
 
@@ -83,6 +92,9 @@ It currently has 13 personas across engineering, creative and business, each wit
 | [technical-writer](personas/engineering/technical-writer.md) | Engineering | Turns backend API code and architecture into developer docs and SDK guides. |
 | [devops-engineer](personas/engineering/devops-engineer.md) | Engineering | Builds CI/CD pipelines, infrastructure as code and observability for safe, frequent releases. |
 | [frontend-developer](personas/engineering/frontend-developer.md) | Engineering | Builds accessible, responsive and performant user interfaces. |
+| [security-engineer](personas/engineering/security-engineer.md) | Engineering | Builds security in through threat modeling, secure architecture, hardening and remediation. |
+| [mobile-developer](personas/engineering/mobile-developer.md) | Engineering | Builds fast, reliable and accessible iOS and Android apps, native or cross-platform. |
+| [machine-learning-engineer](personas/engineering/machine-learning-engineer.md) | Engineering | Builds, evaluates and deploys ML models and LLM features that hold up in production. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
 | [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
