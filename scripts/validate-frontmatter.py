@@ -2,7 +2,9 @@
 """Validate the YAML frontmatter of agent and persona files.
 
 Checks every Markdown file under personas/ and .github/agents/ for a
-frontmatter block containing the required keys. Exits non-zero on failure.
+frontmatter block containing the required keys, and checks that every
+persona has a matching GitHub Copilot agent at
+.github/agents/<name>.agent.md. Exits non-zero on failure.
 
 Usage: python3 scripts/validate-frontmatter.py
 """
@@ -12,6 +14,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+AGENTS = ROOT / ".github/agents"
 
 RULES = {
     "personas": {"glob": "**/*.md", "required": ["name", "description", "category"]},
@@ -30,8 +33,14 @@ def parse_keys(text):
     for line in match.group(1).splitlines():
         m = KEY.match(line)
         if m:
-            keys[m.group(1)] = m.group(2).strip()
+            keys[m.group(1)] = unquote(m.group(2).strip())
     return keys
+
+
+def unquote(value):
+    if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'":
+        return value[1:-1]
+    return value
 
 
 def main():
@@ -48,6 +57,10 @@ def main():
             for key in rule["required"]:
                 if not keys.get(key):
                     errors.append(f"{rel}: missing or empty '{key}'")
+            if directory == "personas" and keys.get("name"):
+                agent = AGENTS / f"{keys['name']}.agent.md"
+                if not agent.is_file():
+                    errors.append(f"{rel}: no matching Copilot agent at {agent.relative_to(ROOT)}")
 
     for error in errors:
         print(error, file=sys.stderr)
