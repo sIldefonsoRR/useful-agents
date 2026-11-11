@@ -29,7 +29,10 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │   │   └── ui-ux-designer.md
 │   └── business/
 │       ├── product-manager.md
-│       └── seo-specialist.md
+│       ├── seo-specialist.md
+│       ├── scrum-master.md
+│       ├── data-analyst.md
+│       └── legal-compliance-advisor.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
 │   ├── transpile-personas.py
 │   └── validate-frontmatter.py
@@ -65,6 +68,9 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 | [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
 | [seo-specialist](personas/business/seo-specialist.md) | Business | Audits copy and optimizes keywords, meta tags and structure for search. |
+| [scrum-master](personas/business/scrum-master.md) | Business | Improves team flow, removes sprint bottlenecks and writes ready-to-execute issues. |
+| [data-analyst](personas/business/data-analyst.md) | Business | Turns user behavior and product metrics into data-backed feature insights. |
+| [legal-compliance-advisor](personas/business/legal-compliance-advisor.md) | Business | Reviews requirements and copy for GDPR, CCPA and AI-governance risks before launch. |
 
 ## Usage
 
