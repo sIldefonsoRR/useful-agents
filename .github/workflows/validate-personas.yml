@@ -6,13 +6,13 @@ on:
     paths:
       - "personas/**"
       - ".github/agents/**"
-      - "scripts/validate-frontmatter.py"
+      - "scripts/**"
       - ".github/workflows/validate-personas.yml"
   pull_request:
     paths:
       - "personas/**"
       - ".github/agents/**"
-      - "scripts/validate-frontmatter.py"
+      - "scripts/**"
       - ".github/workflows/validate-personas.yml"
   workflow_dispatch:
 
@@ -32,3 +32,6 @@ jobs:
 
       - name: Validate persona and agent frontmatter
         run: python3 scripts/validate-frontmatter.py
+
+      - name: Transpile personas to Claude Code and Cursor formats
+        run: python3 scripts/transpile-personas.py --out "$RUNNER_TEMP/transpiled"
