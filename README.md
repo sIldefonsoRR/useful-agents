@@ -2,7 +2,7 @@
 
 A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
 
-It currently has 16 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
+It currently has 16 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus one Copilot-only agent (`senior-dev`).
 
 ## Repository structure
 
@@ -11,7 +11,6 @@ It currently has 16 personas across engineering, creative and business, each wit
 ├── .github/
 │   ├── agents/                 # Native path for GitHub Copilot custom agents
 │   │   ├── senior-dev.agent.md
-│   │   ├── security-reviewer.agent.md
 │   │   ├── ui-ux-designer.agent.md
 │   │   ├── technical-writer.agent.md
 │   │   ├── seo-specialist.agent.md
@@ -65,7 +64,6 @@ It currently has 16 personas across engineering, creative and business, each wit
 | Agent | Description |
 | --- | --- |
 | [senior-dev](.github/agents/senior-dev.agent.md) | Senior software engineer who writes clean, tested, maintainable code. |
-| [security-reviewer](.github/agents/security-reviewer.agent.md) | Audits code changes for vulnerabilities and insecure patterns. |
 | [ui-ux-designer](.github/agents/ui-ux-designer.agent.md) | Turns user flows into wireframes, maintains the design system and reviews visual fidelity. |
 | [technical-writer](.github/agents/technical-writer.agent.md) | Writes developer docs and SDK guides from the repository's API code and architecture. |
 | [seo-specialist](.github/agents/seo-specialist.agent.md) | Audits copy and recommends keyword, meta tag and structure improvements. |
@@ -79,7 +77,7 @@ It currently has 16 personas across engineering, creative and business, each wit
 | [devops-engineer](.github/agents/devops-engineer.agent.md) | Builds and maintains CI/CD pipelines, infrastructure as code and observability. |
 | [frontend-developer](.github/agents/frontend-developer.agent.md) | Builds accessible, responsive and performant UIs that match the design system. |
 | [customer-support-specialist](.github/agents/customer-support-specialist.agent.md) | Investigates customer issues, drafts replies and writes bug reports and help content. |
-| [security-engineer](.github/agents/security-engineer.agent.md) | Threat-models features, hardens code and configuration, and fixes vulnerabilities. |
+| [security-engineer](.github/agents/security-engineer.agent.md) | Reviews code for vulnerabilities (read-only), or threat-models, hardens and fixes them. |
 | [mobile-developer](.github/agents/mobile-developer.agent.md) | Builds fast, reliable and accessible iOS and Android features. |
 | [machine-learning-engineer](.github/agents/machine-learning-engineer.agent.md) | Builds, evaluates and prepares ML models and LLM features for production. |
 
@@ -92,7 +90,7 @@ It currently has 16 personas across engineering, creative and business, each wit
 | [technical-writer](personas/engineering/technical-writer.md) | Engineering | Turns backend API code and architecture into developer docs and SDK guides. |
 | [devops-engineer](personas/engineering/devops-engineer.md) | Engineering | Builds CI/CD pipelines, infrastructure as code and observability for safe, frequent releases. |
 | [frontend-developer](personas/engineering/frontend-developer.md) | Engineering | Builds accessible, responsive and performant user interfaces. |
-| [security-engineer](personas/engineering/security-engineer.md) | Engineering | Builds security in through threat modeling, secure architecture, hardening and remediation. |
+| [security-engineer](personas/engineering/security-engineer.md) | Engineering | Reviews code for vulnerabilities and builds security in through threat modeling, hardening and remediation. |
 | [mobile-developer](personas/engineering/mobile-developer.md) | Engineering | Builds fast, reliable and accessible iOS and Android apps, native or cross-platform. |
 | [machine-learning-engineer](personas/engineering/machine-learning-engineer.md) | Engineering | Builds, evaluates and deploys ML models and LLM features that hold up in production. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
