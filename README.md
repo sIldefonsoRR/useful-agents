@@ -1,6 +1,8 @@
 # useful-agents
 
-A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude, Cursor and other AI tools.
+A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
+
+It currently has 10 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus two Copilot-only agents (`senior-dev` and `security-reviewer`).
 
 ## Repository structure
 
@@ -22,7 +24,7 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │   │   └── legal-compliance-advisor.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
-├── personas/                   # General, cross-platform personas (Claude, Cursor, etc.)
+├── personas/                   # General, cross-platform personas (Claude Code, Cursor, OpenCode, etc.)
 │   ├── engineering/
 │   │   ├── backend-architect.md
 │   │   ├── QA-engineer.md
@@ -81,22 +83,23 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 ## Usage
 
 - **GitHub Copilot**: files in `.github/agents/` are picked up automatically as custom agents in this repository. Copy them into another repository's `.github/agents/` to use them there.
-- **Claude Code and Cursor**: generate ready-to-use files with the transpiler below, or copy personas by hand.
+- **Claude Code, Cursor and OpenCode**: generate ready-to-use files with the transpiler below, or copy personas by hand.
 - **Other tools**: use the body of a persona file as a system prompt, or copy it into your tool's agent or rules configuration.
 
 ### Transpile personas
 
-[`scripts/transpile-personas.py`](scripts/transpile-personas.py) converts every persona in `personas/` into both formats:
+[`scripts/transpile-personas.py`](scripts/transpile-personas.py) converts every persona in `personas/` into each tool's format:
 
 | Output | Format |
 | --- | --- |
 | `.claude/agents/<name>.md` | Claude Code subagent with `name` and `description` frontmatter |
 | `.cursor/rules/<name>.mdc` | Cursor rule with `description`, `globs` and `alwaysApply: false` frontmatter |
+| `.opencode/agents/<name>.md` | OpenCode subagent with `description` and `mode: subagent` frontmatter |
 
-The persona body is copied unchanged. Template-only fields (`category`, `role`, `vibe`, `emoji`, `color`) are dropped because neither tool uses them.
+The persona body is copied unchanged. Template-only fields (`category`, `role`, `vibe`, `emoji`, `color`) are dropped because none of these tools use them.
 
 ```sh
-# Into another project (Claude Code project agents and Cursor rules)
+# Into another project (Claude Code agents, Cursor rules and OpenCode agents)
 python3 scripts/transpile-personas.py --out ~/code/my-project
 
 # Claude Code user-level agents, available in all your projects
@@ -106,7 +109,7 @@ python3 scripts/transpile-personas.py --out ~ --target claude
 python3 scripts/transpile-personas.py
 ```
 
-`--target` accepts `all` (default), `claude` or `cursor`. Existing files with the same name are overwritten. The script stops without writing anything if a persona is missing `name` or `description`, has a `name` that is not lowercase letters, digits and hyphens, or shares a `name` with another persona.
+`--target` accepts `all` (default), `claude`, `cursor` or `opencode`. Existing files with the same name are overwritten. The script stops without writing anything if a persona is missing `name` or `description`, has a `name` that is not lowercase letters, digits and hyphens, or shares a `name` with another persona.
 
 ### Claude Code
 
@@ -148,6 +151,34 @@ for f in personas/*/*.md; do cp "$f" ".cursor/rules/$(basename "$f" .md).mdc"; d
 ```
 
 Cursor uses the `description` to decide when to apply a rule. You can also attach one manually in chat by typing `@` followed by the rule name, for example `@copywriter`.
+
+### OpenCode
+
+OpenCode loads agents from Markdown files and names each agent after its file. The body becomes the agent's system prompt. Personas need different frontmatter for OpenCode: `description`, plus `mode: subagent` so the persona runs as a helper instead of replacing the main agent. Custom agents default to `primary`. Use the transpiler rather than copying persona files directly.
+
+```sh
+# Project-level: .opencode/agents/ in that project
+python3 scripts/transpile-personas.py --out ~/code/my-project --target opencode
+
+# Global: available in all your projects
+python3 scripts/transpile-personas.py --out /tmp/personas --target opencode
+mkdir -p ~/.config/opencode/agents
+cp /tmp/personas/.opencode/agents/*.md ~/.config/opencode/agents/
+```
+
+Each generated file looks like this:
+
+```md
+---
+description: "Plans and writes tests, hunts edge cases and verifies features against requirements."
+mode: subagent
+---
+
+# Identity & Core Mission
+...
+```
+
+To use one, ask the main agent to delegate to it by name, for example "use the qa-engineer subagent to write tests for this module". OpenCode uses the `description` to decide which subagent fits a task. To restrict what an agent can do, add OpenCode's `permissions` rules to its frontmatter after generating it; see the [OpenCode agents documentation](https://opencode.ai/docs/agents/).
 
 ## File format
 
@@ -212,5 +243,5 @@ A pull request that adds a persona with missing frontmatter, or one that cannot 
 
 1. Copy `Persona-Template.md` into the matching `personas/<category>/` folder (or add a Copilot agent under `.github/agents/` with the `.agent.md` suffix).
 2. Run `python3 scripts/validate-frontmatter.py` and fix any errors.
-3. Add the persona to the tables above.
+3. Add the persona to the tables above, and add a matching Copilot agent in `.github/agents/<name>.agent.md`.
 4. Open a pull request. The **Validate personas** check must pass before it is merged.
