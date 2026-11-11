@@ -8,12 +8,9 @@ on:
       - ".github/agents/**"
       - "scripts/**"
       - ".github/workflows/validate-personas.yml"
+  # No paths filter: "Validate personas" is a required check on main, and a
+  # required check that never runs blocks the pull request from merging.
   pull_request:
-    paths:
-      - "personas/**"
-      - ".github/agents/**"
-      - "scripts/**"
-      - ".github/workflows/validate-personas.yml"
   workflow_dispatch:
 
 permissions:
