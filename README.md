@@ -16,7 +16,10 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 │   │   ├── backend-architect.agent.md
 │   │   ├── qa-engineer.agent.md
 │   │   ├── copywriter.agent.md
-│   │   └── product-manager.agent.md
+│   │   ├── product-manager.agent.md
+│   │   ├── scrum-master.agent.md
+│   │   ├── data-analyst.agent.md
+│   │   └── legal-compliance-advisor.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude, Cursor, etc.)
@@ -56,6 +59,9 @@ A collection of useful AI agent personas, ready to drop into GitHub Copilot, Cla
 | [qa-engineer](.github/agents/qa-engineer.agent.md) | Plans, writes and runs tests, and reports reproducible bugs. |
 | [copywriter](.github/agents/copywriter.agent.md) | Writes and edits copy for a specific audience and brand voice. |
 | [product-manager](.github/agents/product-manager.agent.md) | Turns problems into prioritized, well-scoped requirements. |
+| [scrum-master](.github/agents/scrum-master.agent.md) | Removes sprint bottlenecks and writes ready-to-execute GitHub or Jira issues. |
+| [data-analyst](.github/agents/data-analyst.agent.md) | Analyzes user behavior and product metrics for data-backed feature insights. |
+| [legal-compliance-advisor](.github/agents/legal-compliance-advisor.agent.md) | Reviews requirements, code and copy for GDPR, CCPA and AI-governance risks. |
 
 ### Cross-platform personas (`personas/`)
 
