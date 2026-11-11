@@ -190,8 +190,8 @@ It checks every file under `personas/` and `.github/agents/` for the required ke
 
 The [Validate personas](.github/workflows/validate-personas.yml) GitHub Actions workflow runs the validator, then runs the transpiler into a temporary folder to make sure every persona converts cleanly. It runs:
 
-- on pull requests that change `personas/`, `.github/agents/`, `scripts/` or the workflow itself;
-- on pushes to `main` that touch the same paths;
+- on every pull request, whatever it changes, because it is a required check for merging into `main`;
+- on pushes to `main` that change `personas/`, `.github/agents/`, `scripts/` or the workflow itself;
 - manually, from the **Actions** tab (`workflow_dispatch`).
 
 A pull request that adds a persona with missing frontmatter, or one that cannot be transpiled, fails this check.
