@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Transpile personas into Claude Code subagents and Cursor rules.
+"""Transpile personas into Claude Code subagents, Cursor rules and OpenCode agents.
 
 Reads every Markdown file under personas/ and writes:
 
-  <out>/.claude/agents/<name>.md   Claude Code subagent (name, description)
-  <out>/.cursor/rules/<name>.mdc   Cursor project rule (description, globs, alwaysApply)
+  <out>/.claude/agents/<name>.md     Claude Code subagent (name, description)
+  <out>/.cursor/rules/<name>.mdc     Cursor project rule (description, globs, alwaysApply)
+  <out>/.opencode/agents/<name>.md   OpenCode subagent (description, mode)
 
 The persona body is copied unchanged. Template-only metadata (category, role,
-vibe, emoji, color) is dropped because neither tool uses it.
+vibe, emoji, color) is dropped because none of these tools use it.
 
 Usage:
   python3 scripts/transpile-personas.py                      # into this repository
@@ -78,9 +79,21 @@ def cursor_rule(meta, body):
     )
 
 
+def opencode_agent(meta, body):
+    # OpenCode names the agent after the file; without mode it defaults to primary.
+    return (
+        "---\n"
+        f"description: {quote(meta['description'])}\n"
+        "mode: subagent\n"
+        "---\n\n"
+        f"{body}"
+    )
+
+
 TARGETS = {
     "claude": (Path(".claude/agents"), ".md", claude_agent),
     "cursor": (Path(".cursor/rules"), ".mdc", cursor_rule),
+    "opencode": (Path(".opencode/agents"), ".md", opencode_agent),
 }
 
 
