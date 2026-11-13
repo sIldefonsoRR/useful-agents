@@ -2,7 +2,7 @@
 
 A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
 
-It currently has 16 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent, plus one Copilot-only agent (`senior-dev`).
+It currently has 21 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent.
 
 ## Repository structure
 
@@ -26,7 +26,11 @@ It currently has 16 personas across engineering, creative and business, each wit
 │   │   ├── customer-support-specialist.agent.md
 │   │   ├── security-engineer.agent.md
 │   │   ├── mobile-developer.agent.md
-│   │   └── machine-learning-engineer.agent.md
+│   │   ├── machine-learning-engineer.agent.md
+│   │   ├── data-engineer.agent.md
+│   │   ├── site-reliability-engineer.agent.md
+│   │   ├── accessibility-specialist.agent.md
+│   │   └── ux-researcher.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude Code, Cursor, OpenCode, etc.)
@@ -38,10 +42,15 @@ It currently has 16 personas across engineering, creative and business, each wit
 │   │   ├── frontend-developer.md
 │   │   ├── security-engineer.md
 │   │   ├── mobile-developer.md
-│   │   └── machine-learning-engineer.md
+│   │   ├── machine-learning-engineer.md
+│   │   ├── senior-dev.md
+│   │   ├── data-engineer.md
+│   │   ├── site-reliability-engineer.md
+│   │   └── accessibility-specialist.md
 │   ├── creative/
 │   │   ├── copywriter.md
-│   │   └── ui-ux-designer.md
+│   │   ├── ui-ux-designer.md
+│   │   └── ux-researcher.md
 │   └── business/
 │       ├── product-manager.md
 │       ├── seo-specialist.md
@@ -63,7 +72,7 @@ It currently has 16 personas across engineering, creative and business, each wit
 
 | Agent | Description |
 | --- | --- |
-| [senior-dev](.github/agents/senior-dev.agent.md) | Senior software engineer who writes clean, tested, maintainable code. |
+| [senior-dev](.github/agents/senior-dev.agent.md) | Senior software engineer who writes clean, tested, maintainable code and explains trade-offs. |
 | [ui-ux-designer](.github/agents/ui-ux-designer.agent.md) | Turns user flows into wireframes, maintains the design system and reviews visual fidelity. |
 | [technical-writer](.github/agents/technical-writer.agent.md) | Writes developer docs and SDK guides from the repository's API code and architecture. |
 | [seo-specialist](.github/agents/seo-specialist.agent.md) | Audits copy and recommends keyword, meta tag and structure improvements. |
@@ -80,6 +89,10 @@ It currently has 16 personas across engineering, creative and business, each wit
 | [security-engineer](.github/agents/security-engineer.agent.md) | Reviews code for vulnerabilities (read-only), or threat-models, hardens and fixes them. |
 | [mobile-developer](.github/agents/mobile-developer.agent.md) | Builds fast, reliable and accessible iOS and Android features. |
 | [machine-learning-engineer](.github/agents/machine-learning-engineer.agent.md) | Builds, evaluates and prepares ML models and LLM features for production. |
+| [data-engineer](.github/agents/data-engineer.agent.md) | Builds and tests data pipelines, transformation models and warehouse schemas. |
+| [site-reliability-engineer](.github/agents/site-reliability-engineer.agent.md) | Defines SLOs and alerts, writes runbooks and postmortems, and improves service resilience. |
+| [accessibility-specialist](.github/agents/accessibility-specialist.agent.md) | Audits UI code against WCAG 2.2 AA (read-only), or fixes accessibility barriers. |
+| [ux-researcher](.github/agents/ux-researcher.agent.md) | Writes research plans and test guides, and synthesizes findings into recommendations. |
 
 ### Cross-platform personas (`personas/`)
 
@@ -93,8 +106,13 @@ It currently has 16 personas across engineering, creative and business, each wit
 | [security-engineer](personas/engineering/security-engineer.md) | Engineering | Reviews code for vulnerabilities and builds security in through threat modeling, hardening and remediation. |
 | [mobile-developer](personas/engineering/mobile-developer.md) | Engineering | Builds fast, reliable and accessible iOS and Android apps, native or cross-platform. |
 | [machine-learning-engineer](personas/engineering/machine-learning-engineer.md) | Engineering | Builds, evaluates and deploys ML models and LLM features that hold up in production. |
+| [senior-dev](personas/engineering/senior-dev.md) | Engineering | Writes clean, tested, maintainable code that fits the existing codebase. |
+| [data-engineer](personas/engineering/data-engineer.md) | Engineering | Builds reliable, well-tested data pipelines, models and warehouses. |
+| [site-reliability-engineer](personas/engineering/site-reliability-engineer.md) | Engineering | Keeps production reliable through SLOs, incident response, postmortems and capacity planning. |
+| [accessibility-specialist](personas/engineering/accessibility-specialist.md) | Engineering | Audits interfaces against WCAG 2.2 and fixes barriers for assistive technology users. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
 | [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
+| [ux-researcher](personas/creative/ux-researcher.md) | Creative | Plans and runs user research and turns findings into evidence-backed decisions. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
 | [seo-specialist](personas/business/seo-specialist.md) | Business | Audits copy and optimizes keywords, meta tags and structure for search. |
 | [scrum-master](personas/business/scrum-master.md) | Business | Improves team flow, removes sprint bottlenecks and writes ready-to-execute issues. |
@@ -254,7 +272,7 @@ It checks that:
 - every file under `personas/` and `.github/agents/` has the required keys, and none of them is missing or empty;
 - every persona has a matching GitHub Copilot agent at `.github/agents/<name>.agent.md`, where `<name>` is the persona's `name`.
 
-It exits with a non-zero status if any check fails. `Persona-Template.md` lives at the repository root, so it is not checked. Copilot agents without a matching persona, such as `senior-dev`, are allowed.
+It exits with a non-zero status if any check fails. `Persona-Template.md` lives at the repository root, so it is not checked. Copilot agents without a matching persona are allowed.
 
 ### Validate personas workflow
 
