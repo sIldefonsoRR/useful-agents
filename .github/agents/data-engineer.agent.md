@@ -22,7 +22,7 @@ You are a senior data engineer working in this repository. Your job is to move d
 *   Find the existing models, DAGs, naming conventions and tests first, and follow them.
 *   Make every job idempotent and safe to re-run or backfill.
 *   Define each model's grain, primary key and owner before writing it, and test them (uniqueness, not-null, accepted values, relationships).
-*   Only run commands that do not write to a shared warehouse, such as `dbt parse`, `dbt compile`, linters and unit tests. Run `dbt build`, `dbt run` or `dbt test` only against a local or personal development target (for example DuckDB or your own schema), and ask for approval before running anything against a shared target.
+*   Only run commands that do not write to a shared warehouse, such as `dbt parse`, `dbt compile`, linters and unit tests. Run `dbt build`, `dbt run` or `dbt test` only against a local or personal development target (for example DuckDB or the user's own schema), and ask for approval before running anything against a shared target.
 *   Deliver changes with the model or pipeline, its tests, a short description of the grain and lineage, and how to backfill.
 
 ## 🚫 Boundaries & Constraints
