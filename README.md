@@ -80,7 +80,7 @@ It currently has 25 personas across engineering, creative and business, each wit
 
 | Agent | Description |
 | --- | --- |
-| [senior-dev](.github/agents/senior-dev.agent.md) | Senior software engineer who writes clean, tested, maintainable code and explains trade-offs. |
+| [senior-dev](.github/agents/senior-dev.agent.md) | General-purpose engineer who writes clean, tested code and defers to specialist agents. |
 | [ui-ux-designer](.github/agents/ui-ux-designer.agent.md) | Turns user flows into wireframes, maintains the design system and reviews visual fidelity. |
 | [technical-writer](.github/agents/technical-writer.agent.md) | Writes developer docs and SDK guides from the repository's API code and architecture. |
 | [seo-specialist](.github/agents/seo-specialist.agent.md) | Audits copy and recommends keyword, meta tag and structure improvements. |
@@ -89,7 +89,7 @@ It currently has 25 personas across engineering, creative and business, each wit
 | [copywriter](.github/agents/copywriter.agent.md) | Writes and edits copy for a specific audience and brand voice. |
 | [product-manager](.github/agents/product-manager.agent.md) | Turns problems into prioritized, well-scoped requirements. |
 | [scrum-master](.github/agents/scrum-master.agent.md) | Removes sprint bottlenecks and writes ready-to-execute GitHub or Jira issues. |
-| [data-analyst](.github/agents/data-analyst.agent.md) | Analyzes user behavior and product metrics for data-backed feature insights. |
+| [data-analyst](.github/agents/data-analyst.agent.md) | Analyzes user behavior and product metrics for data-backed feature insights, and defines product metrics precisely. |
 | [legal-compliance-advisor](.github/agents/legal-compliance-advisor.agent.md) | Reviews requirements, code and copy for GDPR, CCPA and AI-governance risks. |
 | [devops-engineer](.github/agents/devops-engineer.agent.md) | Builds and maintains CI/CD pipelines, infrastructure as code and observability. |
 | [frontend-developer](.github/agents/frontend-developer.agent.md) | Builds accessible, responsive and performant UIs that match the design system. |
@@ -118,7 +118,7 @@ It currently has 25 personas across engineering, creative and business, each wit
 | [security-engineer](personas/engineering/security-engineer.md) | Engineering | Reviews code for vulnerabilities and builds security in through threat modeling, hardening and remediation. |
 | [mobile-developer](personas/engineering/mobile-developer.md) | Engineering | Builds fast, reliable and accessible iOS and Android apps, native or cross-platform. |
 | [machine-learning-engineer](personas/engineering/machine-learning-engineer.md) | Engineering | Builds, evaluates and deploys ML models and LLM features that hold up in production. |
-| [senior-dev](personas/engineering/senior-dev.md) | Engineering | Writes clean, tested, maintainable code that fits the existing codebase. |
+| [senior-dev](personas/engineering/senior-dev.md) | Engineering | General-purpose engineer who writes clean, tested code and defers to specialist personas. |
 | [data-engineer](personas/engineering/data-engineer.md) | Engineering | Builds reliable, well-tested data pipelines, models and warehouses. |
 | [site-reliability-engineer](personas/engineering/site-reliability-engineer.md) | Engineering | Keeps production reliable through SLOs, incident response, postmortems and capacity planning. |
 | [accessibility-specialist](personas/engineering/accessibility-specialist.md) | Engineering | Audits interfaces against WCAG 2.2 and fixes barriers for assistive technology users. |
@@ -131,7 +131,7 @@ It currently has 25 personas across engineering, creative and business, each wit
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
 | [seo-specialist](personas/business/seo-specialist.md) | Business | Audits copy and optimizes keywords, meta tags and structure for search. |
 | [scrum-master](personas/business/scrum-master.md) | Business | Improves team flow, removes sprint bottlenecks and writes ready-to-execute issues. |
-| [data-analyst](personas/business/data-analyst.md) | Business | Turns user behavior and product metrics into data-backed feature insights. |
+| [data-analyst](personas/business/data-analyst.md) | Business | Turns user behavior and product metrics into data-backed feature insights, and defines product metrics precisely. |
 | [legal-compliance-advisor](personas/business/legal-compliance-advisor.md) | Business | Reviews requirements and copy for GDPR, CCPA and AI-governance risks before launch. |
 | [customer-support-specialist](personas/business/customer-support-specialist.md) | Business | Resolves customer issues with empathetic replies and turns recurring problems into bug reports and help content. |
 | [growth-marketer](personas/business/growth-marketer.md) | Business | Grows acquisition, activation, retention and revenue through funnel analysis and experiments. |

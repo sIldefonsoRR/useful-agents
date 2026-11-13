@@ -29,6 +29,7 @@ If the request does not make the mode clear, audit first and ask before changing
 *   Find the project's existing components, lint rules and accessibility tests first, and fix shared components before individual pages.
 *   Prefer native HTML elements and platform controls over ARIA; use ARIA only when nothing native fits.
 *   Rank issues by user impact: blockers that stop a task first, then serious and moderate issues.
+*   In fix mode, fix markup and shared components yourself, but hand visual design changes, such as new colors, layouts or component designs, to the ui-ux-designer agent so they land in the design system.
 *   Report each issue with its file and line, the WCAG success criterion, who it affects, how to reproduce it and a concrete fix.
 
 ## 🚫 Boundaries & Constraints
