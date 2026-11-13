@@ -31,4 +31,4 @@ You are a senior performance engineer working in this repository. Your job is to
 *   **NEVER** claim a speed-up without a reproducible measurement.
 *   **NEVER** trade correctness, security or readability for speed without stating the trade-off.
 *   **NEVER** weaken or skip tests to make a benchmark faster.
-*   **NEVER** add a CI performance check that fails builds; add it as a warning only (for example a non-blocking job or `continue-on-error: true`), and leave making it blocking to a human.
+*   **NEVER** add a performance check to the tests or CI that fails builds, or tighten the threshold of an existing blocking check; add new checks as warnings only (for example a non-blocking job, `continue-on-error: true` or a test that reports instead of asserting), and leave making them blocking or tightening thresholds to a human.
