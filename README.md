@@ -2,7 +2,7 @@
 
 A collection of useful AI agent personas, ready to drop into GitHub Copilot, Claude Code, Cursor, OpenCode and other AI tools.
 
-It currently has 21 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent.
+It currently has 25 personas across engineering, creative and business, each with a matching GitHub Copilot custom agent.
 
 ## Repository structure
 
@@ -30,7 +30,11 @@ It currently has 21 personas across engineering, creative and business, each wit
 │   │   ├── data-engineer.agent.md
 │   │   ├── site-reliability-engineer.agent.md
 │   │   ├── accessibility-specialist.agent.md
-│   │   └── ux-researcher.agent.md
+│   │   ├── ux-researcher.agent.md
+│   │   ├── performance-engineer.agent.md
+│   │   ├── tech-lead.agent.md
+│   │   ├── growth-marketer.agent.md
+│   │   └── content-strategist.agent.md
 │   └── workflows/
 │       └── validate-personas.yml   # CI check for persona and agent frontmatter
 ├── personas/                   # General, cross-platform personas (Claude Code, Cursor, OpenCode, etc.)
@@ -46,18 +50,22 @@ It currently has 21 personas across engineering, creative and business, each wit
 │   │   ├── senior-dev.md
 │   │   ├── data-engineer.md
 │   │   ├── site-reliability-engineer.md
-│   │   └── accessibility-specialist.md
+│   │   ├── accessibility-specialist.md
+│   │   ├── performance-engineer.md
+│   │   └── tech-lead.md
 │   ├── creative/
 │   │   ├── copywriter.md
 │   │   ├── ui-ux-designer.md
-│   │   └── ux-researcher.md
+│   │   ├── ux-researcher.md
+│   │   └── content-strategist.md
 │   └── business/
 │       ├── product-manager.md
 │       ├── seo-specialist.md
 │       ├── scrum-master.md
 │       ├── data-analyst.md
 │       ├── legal-compliance-advisor.md
-│       └── customer-support-specialist.md
+│       ├── customer-support-specialist.md
+│       └── growth-marketer.md
 ├── scripts/                    # Scripts to transpile or validate frontmatter format
 │   ├── transpile-personas.py
 │   └── validate-frontmatter.py
@@ -93,6 +101,10 @@ It currently has 21 personas across engineering, creative and business, each wit
 | [site-reliability-engineer](.github/agents/site-reliability-engineer.agent.md) | Defines SLOs and alerts, writes runbooks and postmortems, and improves service resilience. |
 | [accessibility-specialist](.github/agents/accessibility-specialist.agent.md) | Audits UI code against WCAG 2.2 AA (read-only), or fixes accessibility barriers. |
 | [ux-researcher](.github/agents/ux-researcher.agent.md) | Writes research plans and test guides, and synthesizes findings into recommendations. |
+| [performance-engineer](.github/agents/performance-engineer.agent.md) | Profiles, benchmarks and load-tests code locally, and fixes bottlenecks with before-and-after numbers. |
+| [tech-lead](.github/agents/tech-lead.agent.md) | Writes technical plans and ADRs, estimates and sequences work, and reviews for design. |
+| [growth-marketer](.github/agents/growth-marketer.agent.md) | Diagnoses the funnel from analytics events, and writes experiment briefs and campaign plans. |
+| [content-strategist](.github/agents/content-strategist.agent.md) | Audits docs and copy, and writes content strategies, calendars, briefs and voice guides. |
 
 ### Cross-platform personas (`personas/`)
 
@@ -110,15 +122,19 @@ It currently has 21 personas across engineering, creative and business, each wit
 | [data-engineer](personas/engineering/data-engineer.md) | Engineering | Builds reliable, well-tested data pipelines, models and warehouses. |
 | [site-reliability-engineer](personas/engineering/site-reliability-engineer.md) | Engineering | Keeps production reliable through SLOs, incident response, postmortems and capacity planning. |
 | [accessibility-specialist](personas/engineering/accessibility-specialist.md) | Engineering | Audits interfaces against WCAG 2.2 and fixes barriers for assistive technology users. |
+| [performance-engineer](personas/engineering/performance-engineer.md) | Engineering | Profiles, load-tests and optimizes applications, backed by before-and-after measurements. |
+| [tech-lead](personas/engineering/tech-lead.md) | Engineering | Leads technical direction through plans, ADRs, estimates, reviews and mentoring. |
 | [copywriter](personas/creative/copywriter.md) | Creative | Writes clear, persuasive copy for a specific audience and voice. |
 | [ui-ux-designer](personas/creative/ui-ux-designer.md) | Creative | Turns user flows into wireframes, builds design systems and reviews visual fidelity. |
 | [ux-researcher](personas/creative/ux-researcher.md) | Creative | Plans and runs user research and turns findings into evidence-backed decisions. |
+| [content-strategist](personas/creative/content-strategist.md) | Creative | Plans content pillars, editorial calendars, voice and tone guides and content audits. |
 | [product-manager](personas/business/product-manager.md) | Business | Turns problems into prioritized, well-scoped requirements. |
 | [seo-specialist](personas/business/seo-specialist.md) | Business | Audits copy and optimizes keywords, meta tags and structure for search. |
 | [scrum-master](personas/business/scrum-master.md) | Business | Improves team flow, removes sprint bottlenecks and writes ready-to-execute issues. |
 | [data-analyst](personas/business/data-analyst.md) | Business | Turns user behavior and product metrics into data-backed feature insights. |
 | [legal-compliance-advisor](personas/business/legal-compliance-advisor.md) | Business | Reviews requirements and copy for GDPR, CCPA and AI-governance risks before launch. |
 | [customer-support-specialist](personas/business/customer-support-specialist.md) | Business | Resolves customer issues with empathetic replies and turns recurring problems into bug reports and help content. |
+| [growth-marketer](personas/business/growth-marketer.md) | Business | Grows acquisition, activation, retention and revenue through funnel analysis and experiments. |
 
 ## Usage
 
